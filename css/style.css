@@ -1,9 +1,3 @@
-/*
-* Template Name: LuxuryHotel
-* Template Author: Untree.co
-* Tempalte URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/
 body {
   font-family: "Roboto", sans-serif;
   background-color: #fff;
@@ -503,6 +497,12 @@ a, a:hover {
   line-height: 0;
   font-weight: 700;
   font-family: "Cormorant Garamond", serif;
+  /* hyphens */
+  -moz-hyphens: auto;
+  -o-hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto; 
 }
 
 .suite-wrap.overlap-image-1 .suite-contents .suite-title > span {
@@ -791,6 +791,14 @@ a, a:hover {
   background: #ff896b;
 }
 
+.icon-open_in_new {
+  content: "\e89e";
+  font-size: 1.5rem;
+  position: relative;
+  top: 0.35rem;
+  margin-right: 0.6rem;
+}
+
 /* Site Nav */
 .sticky-wrapper {
   z-index: 999;
@@ -882,6 +890,7 @@ a, a:hover {
   text-transform: uppercase;
   letter-spacing: .05rem;
   font-size: 12px;
+  font-weight: 500;
   position: relative;
 }
 
@@ -890,7 +899,7 @@ a, a:hover {
   right: 20px;
   content: "";
   position: absolute;
-  height: 1px;
+  height: 2px;
   background: #fff;
   bottom: 0;
   width: 0%;
@@ -1180,6 +1189,7 @@ a, a:hover {
   padding-left: 20px;
   padding-right: 20px;
   color: #000;
+  font-weight: 400;
 }
 
 .KArotte--site-mobile-menu ul a:hover, .KArotte--site-mobile-menu ul li a:hover {
@@ -1333,7 +1343,7 @@ a, a:hover {
   outline: none;
 }
 
-.featured-rooms {
+.featured-content {
   background-color: #b4a9a8;
   background-color: #fff;
 }
@@ -1431,7 +1441,7 @@ span[data-jarallax-element] {
 }
 
 .bg-body-darker {
-  background: #e6e6e6;
+  background: #F7F7EF;
 }
 
 .cta {
@@ -2018,4 +2028,74 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+/*Map Container------------ */
+
+.responsive-map-container {
+  position: relative;
+  padding-bottom: 50%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+}
+
+.responsive-map-container iframe,   
+.responsive-map-container object,  
+.responsive-map-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*FAQ------------ */
+
+div.faq-question{
+  position: relative;
+  margin:2.5em 0;
+}
+input{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  opacity:0;
+  visibility: 0;
+}
+label::after{
+  content: "🥕";
+  rotate: -130deg;
+  transition: 100ms linear 50ms;
+  margin-left: 3%;
+  margin-right: 1%;
+}
+label{
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+div.p{
+  max-height:0px;
+  overflow: hidden;
+  transition:max-height 0.5s;
+}
+div.p p {
+  padding: 1.6em 0;
+  margin-right: 2rem;
+}
+input:checked ~ h2 label::after{
+  transition:max-height 0.5s;
+  rotate: -41deg;
+  transition: 100ms linear 50ms;
+}
+input:checked ~ h2 ~ div.p{
+  max-height:50em;
+}
+input:hover ~ h2 {
+  color: #707070;
+  transition: 100ms linear 50ms;
 }
