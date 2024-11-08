@@ -2081,19 +2081,19 @@ label{
 div.p{
   max-height:0px;
   overflow: hidden;
-  transition:max-height 0.5s;
+  transition:max-height 0.75s;
 }
 div.p p {
   padding: 1.6em 0;
   margin-right: 2rem;
 }
 input:checked ~ h2 label::after{
-  transition:max-height 0.5s;
+  transition:max-height 0.75s;
   rotate: -41deg;
   transition: 100ms linear 50ms;
 }
 input:checked ~ h2 ~ div.p{
-  max-height:50em;
+  max-height:100em;
 }
 input:hover ~ h2 {
   color: #707070;
