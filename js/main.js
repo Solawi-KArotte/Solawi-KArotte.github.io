@@ -464,4 +464,80 @@ $(function() {
   };
   owlCarouselPlugin();
 
+  var miniBannerPlugin = function() {
+    var banner = document.getElementById('KArotte-mini-banner');
+    var closeButton = document.querySelector('.js-mini-banner-close');
+    var linkButton = document.querySelector('.js-mini-banner-link');
+    var storageKey = 'KArotteMiniBannerClosed';
+    var targetId = 'solawi-membership';
+    var threshold = 0.03;
+    var visible = false;
+
+    if (!banner || !closeButton || !linkButton) {
+      return;
+    }
+
+    if (localStorage.getItem(storageKey) === '1') {
+      return;
+    }
+
+    var getScrollRatio = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      var pageHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+      if (pageHeight <= 0) {
+        return 0;
+      }
+      return scrollTop / pageHeight;
+    };
+
+    var showBanner = function() {
+      if (visible) {
+        return;
+      }
+      banner.classList.add('KArotte-mini-banner--visible');
+      visible = true;
+    };
+
+    var hideBanner = function(persist) {
+      banner.classList.remove('KArotte-mini-banner--visible');
+      visible = false;
+      if (persist) {
+        localStorage.setItem(storageKey, '1');
+      }
+    };
+
+    var onScroll = function() {
+      if (visible) {
+        return;
+      }
+      if (getScrollRatio() >= threshold) {
+        showBanner();
+      }
+    };
+
+    var scrollToTarget = function() {
+      var target = document.getElementById(targetId);
+      if (!target) {
+        return;
+      }
+      var section = target.closest('.KArotte--site-section') || target;
+      var offset = 120;
+      var top = section.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    };
+
+    document.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('wheel', onScroll, { passive: true });
+    window.addEventListener('touchmove', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    closeButton.addEventListener('click', function() { hideBanner(true); });
+    linkButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      scrollToTarget();
+    });
+    setTimeout(onScroll, 100);
+  };
+  miniBannerPlugin();
+
 });

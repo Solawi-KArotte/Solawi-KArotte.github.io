@@ -257,6 +257,87 @@ a, a:hover {
   background: #000;
 }
 
+.KArotte-mini-banner {
+  display: none;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 2000;
+  max-width: 340px;
+  width: calc(100% - 40px);
+  background: #F7F7EF;
+  color: #000;
+  border: 1px solid #efefef;
+  border-radius: 16px;
+  padding: 1rem 1.2rem 1rem 1rem;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.KArotte-mini-banner.KArotte-mini-banner--visible {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.KArotte-mini-banner__content {
+  margin-right: 32px;
+}
+
+.KArotte-mini-banner__content p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #000;
+}
+
+.KArotte-mini-banner__lead {
+  display: block;
+  font-size: 1.08rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.KArotte-mini-banner__link {
+  all: unset;
+  color: #ff896b;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.KArotte-mini-banner__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: transparent;
+  color: #000;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.KArotte-mini-banner__close:hover {
+  opacity: 1;
+}
+
+@media (max-width: 767.98px) {
+  .KArotte-mini-banner {
+    right: 12px;
+    left: 12px;
+    bottom: 12px;
+    max-width: none;
+  }
+}
+
 .KArotte--site-hero {
   background-size: cover;
   background-position: center center;
