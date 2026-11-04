@@ -2149,6 +2149,119 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
   margin-bottom: 0;
 }
 
+.network-section {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.network-section + .network-section {
+  border-top: 1px solid #e8e9df;
+}
+
+.network-intro {
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.network-intro p {
+  margin-bottom: 0;
+}
+
+.network-intro .display-4 {
+  line-height: 1.1;
+}
+
+.network-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.network-grid--partners {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.network-card {
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e8e9df;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(39, 54, 32, .07);
+}
+
+.network-card__image {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.network-card--partner .network-card__image {
+  height: 300px;
+}
+
+.network-card__body {
+  padding: 1.35rem 1.5rem 1.5rem;
+}
+
+.network-card__body h3 {
+  margin-bottom: .55rem;
+  font-size: 1.65rem;
+}
+
+.network-card__body p {
+  margin-bottom: .9rem;
+}
+
+.network-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .45rem .75rem;
+  border-radius: 3px;
+  background: #ff896b;
+  color: #fff;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.network-card__link:hover,
+.network-card__link:focus {
+  background: #e46c4e;
+  color: #fff;
+}
+
+@media (max-width: 991.98px) {
+  .network-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 575.98px) {
+  .network-grid,
+  .network-grid--partners {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .network-card__image,
+  .network-card--partner .network-card__image {
+    height: 230px;
+  }
+
+  .network-section {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .network-intro .display-4 {
+    font-size: 2.25rem;
+  }
+}
+
 /*PRELOADING------------ */
 #KArotte--overlayer {
   width: 100%;

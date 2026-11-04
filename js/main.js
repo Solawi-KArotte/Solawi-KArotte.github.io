@@ -464,7 +464,9 @@ $(function() {
   };
   owlCarouselPlugin();
 
-  var miniBannerPlugin = function() {
+	var anteileVerfuegbar = true;
+
+	var miniBannerPlugin = function() {
     var banner = document.getElementById('KArotte-mini-banner');
     var closeButton = document.querySelector('.js-mini-banner-close');
     var linkButton = document.querySelector('.js-mini-banner-link');
@@ -476,6 +478,17 @@ $(function() {
     if (!banner || !closeButton || !linkButton) {
       return;
     }
+
+		var currentDate = new Date();
+		var harvestYear = currentDate.getFullYear() + (currentDate.getMonth() >= 8 ? 1 : 0);
+
+		if (anteileVerfuegbar) {
+			linkButton.textContent = 'Wir haben noch Anteile für ' + harvestYear + ' zu vergeben.';
+			linkButton.href = '#' + targetId;
+		} else {
+			linkButton.textContent = 'Momentan sind leider alle Anteile vergeben, doch gerne kannst Du Dich auf die Warteliste setzen lassen.';
+			linkButton.href = 'mailto:info@solawi-karotte.de';
+		}
 
     if (localStorage.getItem(storageKey) === '1') {
       return;
@@ -532,10 +545,12 @@ $(function() {
     window.addEventListener('touchmove', onScroll, { passive: true });
     window.addEventListener('resize', onScroll, { passive: true });
     closeButton.addEventListener('click', function() { hideBanner(true); });
-    linkButton.addEventListener('click', function(e) {
-      e.preventDefault();
-      scrollToTarget();
-    });
+		if (anteileVerfuegbar) {
+			linkButton.addEventListener('click', function(e) {
+				e.preventDefault();
+				scrollToTarget();
+			});
+		}
     setTimeout(onScroll, 100);
   };
   miniBannerPlugin();
