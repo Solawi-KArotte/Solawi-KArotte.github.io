@@ -2247,9 +2247,36 @@ footer .form-subscribe .form-control:active, footer .form-subscribe .form-contro
     gap: 1rem;
   }
 
+  .network-card {
+    display: grid;
+    grid-template-columns: minmax(100px, 36%) minmax(0, 1fr);
+    align-items: stretch;
+  }
+
   .network-card__image,
   .network-card--partner .network-card__image {
-    height: 230px;
+    height: 100%;
+    min-height: 180px;
+    object-fit: cover;
+  }
+
+  .network-card__body {
+    padding: 1rem;
+  }
+
+  .network-card__body h3 {
+    font-size: 1.35rem;
+    line-height: 1.15;
+  }
+
+  .network-card__body p {
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .network-card__link {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.55rem;
   }
 
   .network-section {
